@@ -15,21 +15,19 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": {
+              "path": "config/webpack-prod.config.js"
+            },
             "outputPath": "dist/ng-akita-tailwind-seed",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/assets/css/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -62,15 +60,31 @@
             }
           }
         },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+        "build-dev": {
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "browserTarget": "ng-akita-tailwind-seed:build"
+            "customWebpackConfig": {
+              "path": "config/webpack-dev.config.js"
+            },
+            "outputPath": "dist/ng-akita-tailwind-seed",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/assets/css/styles.scss"]
           },
           "configurations": {
             "production": {
               "browserTarget": "ng-akita-tailwind-seed:build:production"
             }
+          }
+        },
+        "serve": {
+          "builder": "@angular-builders/custom-webpack:dev-server",
+          "options": {
+            "browserTarget": "ng-akita-tailwind-seed:build-dev"
           }
         },
         "extract-i18n": {
@@ -86,13 +100,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/assets/css/styles.scss"],
             "scripts": []
           }
         },
@@ -104,9 +113,7 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -124,5 +131,8 @@
       }
     }
   },
-  "defaultProject": "ng-akita-tailwind-seed"
+  "defaultProject": "ng-akita-tailwind-seed",
+  "cli": {
+    "analytics": "8c3401ca-b25f-44de-b495-5047a6f7ca76"
+  }
 }
