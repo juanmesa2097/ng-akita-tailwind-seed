@@ -1,10 +1,17 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { Path } from './@core/enums/path.enum';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: Path.Tasks,
+    loadChildren: () =>
+      import('@app/tasks/tasks.module').then((m) => m.TasksModule),
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
