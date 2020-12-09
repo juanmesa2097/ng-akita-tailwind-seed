@@ -37,7 +37,7 @@
     "@datorama/akita-ngdevtools": "^5.0.3",
     "@fullhuman/postcss-purgecss": "^3.0.0",
     "@types/jasmine": "~3.6.0",
-    "@types/node": "^14.14.10",
+    "@types/node": "^14.14.11",
     "autoprefixer": "^10.1.0",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
