@@ -36,7 +36,7 @@
     "@angular/compiler-cli": "~11.0.1",
     "@datorama/akita-ngdevtools": "^6.0.0",
     "@fullhuman/postcss-purgecss": "^4.0.3",
-    "@types/jasmine": "~3.6.8",
+    "@types/jasmine": "~3.6.9",
     "@types/node": "^14.14.36",
     "autoprefixer": "^10.2.5",
     "codelyzer": "^6.0.0",
